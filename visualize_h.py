@@ -55,9 +55,10 @@ def main():
     with col5:
         monthly_revenue = data.groupby('Nguồn')['Doanh thu thực thu'].sum().reset_index()
         fig2 = px.bar(monthly_revenue, x='Nguồn', y='Doanh thu thực thu',
-                    title='Doanh thu thực thu theo Nguồn')
-        # Set a single color for all bars
-        fig2.update_traces(marker_color='blue')  # You can change 'blue' to any color you prefer
+                    title='Doanh thu thực thu theo Nguồn',
+                    color='Doanh thu thực thu',
+                    color_continuous_scale=px.colors.sequential.Rainbow
+                    )
         fig2.update_layout(
             title='<b>Doanh thu theo Nguồn</b>',
             xaxis_title="Nguồn",

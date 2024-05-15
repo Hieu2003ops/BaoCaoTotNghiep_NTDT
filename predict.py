@@ -48,17 +48,18 @@ def app():
 
     # Predict button in the center or under columns
     if st.button('Dự đoán'):
-        # Encode and predict
-        features = [source, sale_employee, tested,facebook,zalo,phone]
-        nume = [year,month]
+        features = [source, sale_employee, tested, facebook, zalo, phone]
+        nume = [year, month]
         mapped_data = [map_value(value) for value in features]
-        all_features = np.hstack((mapped_data,nume))
-        prediction = model.predict(all_features.reshape(1, -1))
-        if prediction == 1:
-            res = 'Đăng kí học'
-        else:
-            res = 'Không học'
-        st.write(f'Dự đoán : {res}')
+        all_features = np.hstack((mapped_data, nume))
+        prediction_proba = model.predict_proba(all_features.reshape(1, -1))
+        
+        # Assuming the positive class (Đăng kí học) is the second column
+        proba_đăng_kí_học = prediction_proba[0][1] * 100
+        proba_không_học = prediction_proba[0][0] * 100
+        
+        st.write(f'Khả năng Đăng kí học: {proba_đăng_kí_học:.2f}%')
+        st.write(f'Khả năng Không học: {proba_không_học:.2f}%')
 
 
 # def app():

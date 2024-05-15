@@ -11,9 +11,10 @@ def main():
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: white;
+            background-color: #2c3e50;  # Dark slate color for menu background
             padding: 5px;
             border-radius: 5px;
+            color: #ecf0f1;  # Soft white text color
         }
         .menu-container .menu-title {
             font-size: 20px;
@@ -21,26 +22,25 @@ def main():
         }
         .menu-container .additional-info {
             font-size: 18px;
-            color: black;
+            color: #f39c12;  # Bright orange for visibility
+            font-style: italic;
         }
         </style>
         <div class="menu-container">
-            <span class="menu-title"></span>
-            <span class="additional-info">Edit by: Ngô Thị Diễm Thúy</span>
+            <span class="menu-title">Main Menu</span>
+            <span class="additional-info">Edited by: Ngô Thị Diễm Thúy</span>
         </div>
     """, unsafe_allow_html=True)
-
     app = option_menu(
-        menu_title="MAIN MENU", 
+        menu_title="MAIN MENU",
         options=["Dashboard", "Predict"],
-        # icons = ["car-front", "calculator", "search", "info-circle-fill"],
         default_index=0,
         orientation="horizontal",
         styles={
-            "container": {"padding": "5!important", "background-color": 'white'},
-            "icon": {"color": "black", "font-size": "23px"}, 
-            "nav-link": {"font-size": "20px", "text-align": "center", "margin": "0px", "--hover-color": "#BDE4F5"},
-            "nav-link-selected": {"background-color": "#2BB2EF"},
+            "container": {"padding": "5!important", "background-color": '#333333', "color": "#FFFFFF"},
+            "icon": {"color": "white", "font-size": "23px"},
+            "nav-link": {"font-size": "20px", "text-align": "center", "margin": "0px", "--hover-color": "#444444"},
+            "nav-link-selected": {"background-color": "#555555"},
         }
     )
 
