@@ -8,5 +8,5 @@ numpy
 num2words
 joblib
 plotly
-
+statsmodels
 
